@@ -42,7 +42,7 @@ public class MergedData_Service : IMergedData_Service
 
     logger!.LogInformation($"Merged list from both sources is size: {userAzure?.Count}");
 
-    await SerializeAsync();
+    //await jsonData!.SerializeToJsonAsync(pathToJson, mergedUsers);
     return mergedUsers;
   }
 
@@ -79,13 +79,6 @@ public class MergedData_Service : IMergedData_Service
       });
     }
   }
-
-  public async Task SerializeAsync()
-  {
-    logger!.LogInformation($"Json list size is: {mergedUsers.Count}");
-    await jsonData!.SerializeToJsonAsync(pathToJson, mergedUsers);
-  }
-
 
   public async Task AddAync(MergedUsers newUser)
   {

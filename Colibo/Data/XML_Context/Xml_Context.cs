@@ -17,9 +17,14 @@ namespace Colibo.Data.XML_Context
 
     public async Task<EmployeeData> Initialize_xml_Async()
     {
-      Data = await ReadDataAsync(xml_Persons);
-      logger.LogInformation($"Person size:{Data.persons.Count}");
-      return Data;
+      if (Data == null)
+      { 
+        return await ReadDataAsync(xml_Persons); 
+      }
+      else
+      { 
+        return Data!; 
+      }
     }
 
     private async Task<EmployeeData> ReadDataAsync(string xml_Persons)
@@ -36,5 +41,5 @@ namespace Colibo.Data.XML_Context
         throw;
       }
     }
- }
+  }
 }

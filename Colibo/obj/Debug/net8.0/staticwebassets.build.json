@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yuESknCFYkBxP+Ak0v3f7WDoiNV/kRjdla0lxqaYvWY=",
+  "Hash": "XvYZg8T0l3SWLqg8m4trN+++G99525CZ0Ntbw1pBmtE=",
   "Source": "Colibo",
   "BasePath": "_content/Colibo",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Colibo/wwwroot",
       "Source": "Colibo",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/",
       "BasePath": "_content/Colibo",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/home/unknwn/repos/dotnet/colibo/Colibo/obj/Debug/net8.0/scopedcss/bundle/Colibo.styles.css",
+      "Identity": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/obj/Debug/net8.0/scopedcss/bundle/Colibo.styles.css",
       "SourceId": "Colibo",
       "SourceType": "Computed",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/obj/Debug/net8.0/scopedcss/bundle/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/obj/Debug/net8.0/scopedcss/bundle/",
       "BasePath": "_content/Colibo",
       "RelativePath": "Colibo.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/home/unknwn/repos/dotnet/colibo/Colibo/obj/Debug/net8.0/scopedcss/bundle/Colibo.styles.css"
+      "OriginalItemSpec": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/obj/Debug/net8.0/scopedcss/bundle/Colibo.styles.css"
     },
     {
-      "Identity": "/home/unknwn/repos/dotnet/colibo/Colibo/obj/Debug/net8.0/scopedcss/projectbundle/Colibo.bundle.scp.css",
+      "Identity": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/obj/Debug/net8.0/scopedcss/projectbundle/Colibo.bundle.scp.css",
       "SourceId": "Colibo",
       "SourceType": "Computed",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/obj/Debug/net8.0/scopedcss/projectbundle/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/obj/Debug/net8.0/scopedcss/projectbundle/",
       "BasePath": "_content/Colibo",
       "RelativePath": "Colibo.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/home/unknwn/repos/dotnet/colibo/Colibo/obj/Debug/net8.0/scopedcss/projectbundle/Colibo.bundle.scp.css"
+      "OriginalItemSpec": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/obj/Debug/net8.0/scopedcss/projectbundle/Colibo.bundle.scp.css"
     },
     {
-      "Identity": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/app.css",
+      "Identity": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/app.css",
       "SourceId": "Colibo",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/",
       "BasePath": "_content/Colibo",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot/app.css"
     },
     {
-      "Identity": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/bootstrap/bootstrap.min.css",
+      "Identity": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/bootstrap/bootstrap.min.css",
       "SourceId": "Colibo",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/",
       "BasePath": "_content/Colibo",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot/bootstrap/bootstrap.min.css"
     },
     {
-      "Identity": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/bootstrap/bootstrap.min.css.map",
+      "Identity": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/bootstrap/bootstrap.min.css.map",
       "SourceId": "Colibo",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/",
       "BasePath": "_content/Colibo",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot/bootstrap/bootstrap.min.css.map"
     },
     {
-      "Identity": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/favicon.png",
+      "Identity": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/favicon.png",
       "SourceId": "Colibo",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/unknwn/repos/dotnet/colibo/Colibo/wwwroot/",
+      "ContentRoot": "/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/",
       "BasePath": "_content/Colibo",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
