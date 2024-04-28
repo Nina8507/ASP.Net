@@ -1,8 +1,9 @@
 
 using System.Text.Json;
 using Colibo.Models;
+using Colibo.Service.MergedData_Service;
 
-namespace Colibo.Service;
+namespace Colibo.Service.Json_Service;
 
 public class JsonData_Service : IJsonData_Service
 {

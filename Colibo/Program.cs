@@ -1,7 +1,8 @@
 using Colibo.Components;
 using Colibo.Data.AZURE_Context;
 using Colibo.Data.XML_Context;
-using Colibo.Service;
+using Colibo.Service.Json_Service;
+using Colibo.Service.MergedData_Service;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);

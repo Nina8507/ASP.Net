@@ -1,11 +1,10 @@
 using System.Xml.Serialization;
 
-namespace Colibo.Models
+namespace Colibo.Models;
+
+[XmlRoot(ElementName = "persons")]
+public class EmployeeData
 {
-  [XmlRoot(ElementName = "persons")]
-  public class EmployeeData
-  {
-    [XmlElement(ElementName = "person")]
-    public List<Employee> persons = [];
-  }
+  [XmlElement(ElementName = "person")]
+  public List<Employee> persons = [];
 }

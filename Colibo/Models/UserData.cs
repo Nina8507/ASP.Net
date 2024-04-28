@@ -1,7 +1,6 @@
-namespace Colibo.Models
+namespace Colibo.Models;
+
+public class UserData
 {
-  public class UserData
-  {
-    public List<User>?  Value { get; set; }
-  }
+  public List<User>? Value { get; set; }
 }

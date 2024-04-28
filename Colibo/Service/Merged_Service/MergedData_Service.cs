@@ -3,7 +3,7 @@ using Colibo.Data.XML_Context;
 using Colibo.Models;
 
 
-namespace Colibo.Service;
+namespace Colibo.Service.MergedData_Service;
 
 public class MergedData_Service : IMergedData_Service
 {

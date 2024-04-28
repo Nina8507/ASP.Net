@@ -1,9 +1,8 @@
 using Colibo.Models;
 
-namespace Colibo.Data.XML_Context
+namespace Colibo.Data.XML_Context;
+
+public interface IContext_Xml
 {
-  public interface IContext_Xml
-  {
-    Task<EmployeeData> Initialize_xml_Async();
-  }
+  Task<EmployeeData> Initialize_xml_Async();
 }
