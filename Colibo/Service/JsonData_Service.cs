@@ -65,7 +65,7 @@ public class JsonData_Service : IJsonData_Service
       }
       else
       {
-        logger!.LogError("Deserialization of JSON content failed or resulted in a null list.");
+        logger!.LogError("Deserialization of JSON content failed.");
       }
     }
     catch (Exception ex)
@@ -80,27 +80,27 @@ public class JsonData_Service : IJsonData_Service
     try
     {
       var content = await File.ReadAllTextAsync(path);
-      var userList = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
 
-      if (userList != null)
+      if (list != null)
       {
-        var userToRemove = userList.FirstOrDefault(u => u.Id!.Equals(id));
-        if (userToRemove != null)
+        var toRemove = list.FirstOrDefault(u => u.Id!.Equals(id));
+        if (toRemove != null)
         {
-          userList.Remove(userToRemove);
-          var json = JsonSerializer.Serialize(userList, new JsonSerializerOptions { WriteIndented = true });
+          list.Remove(toRemove);
+          var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
           await File.WriteAllTextAsync(path, json);
 
-          logger!.LogInformation($"User with Id {id} deleted successfully.");
+          logger!.LogInformation($" Id deleted successfully: {id}");
         }
         else
         {
-          logger!.LogError($"User with Id {id} not found in the list.");
+          logger!.LogError($" Id: {id} not found.");
         }
       }
       else
       {
-        logger!.LogError("Deserialization of JSON content failed or resulted in a null list.");
+        logger!.LogError("Deserialization of JSON content failed.");
       }
     }
     catch (Exception ex)
@@ -110,19 +110,71 @@ public class JsonData_Service : IJsonData_Service
     }
   }
 
+  public async Task UpdateAsync(MergedUsers updateUser)
+  {
+    try
+    {
+      var content = await File.ReadAllTextAsync(path);
+      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
 
-  // public async Task UpdateAsync(string id)
-  // {
-  //   var getAll = await GetAllAsync();
-  //   var toUpdate = getAll!.FirstOrDefault(u => u.Id!.Equals(id));
-  //   getAll.Remove(toUpdate!);
-  //   await jsonData!.SerializeToJsonAsync(pathToJson, getAll);
-  // }
+      if (list != null)
+      {
+        var toUpdate = list.FirstOrDefault(u => u.Id!.Equals(updateUser.Id));
+        if (toUpdate != null)
+        {
+          list.Remove(toUpdate);
+          list.Add(updateUser);
+          var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
+          await File.WriteAllTextAsync(path, json);
 
-  // public async Task<MergedUsers> GetByIdAsync(string id)
-  // {
-  //   var getAll = await GetAllAsync();
-  //   var findUser = getAll!.FirstOrDefault(uid => uid.Id!.Equals(id));
-  //   return findUser!;
-  // }
+          logger!.LogInformation($"Updated user with Id: {updateUser.Id}");
+        }
+        else
+        {
+          logger!.LogError($"Id: {updateUser.Id} not found.");
+        }
+      }
+      else
+      {
+        logger!.LogError("Deserialization of JSON content failed.");
+      }
+    }
+    catch (Exception ex)
+    {
+      logger!.LogError($"Error deleting user from JSON file: {ex.Message}");
+      throw;
+    }
+  }
+
+  public async Task<MergedUsers> GetByIdAsync(string id)
+  {
+    try
+    {
+      var content = await File.ReadAllTextAsync(path);
+      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+
+      if (list == null || !list.Any())
+      {
+        logger.LogError("List is empty.");
+        return null!;
+      }
+
+      var findUser = list.FirstOrDefault(u => u.Id != null && u.Id.Equals(id));
+
+      if (findUser != null)
+      {
+        return findUser;
+      }
+      else
+      {
+        logger.LogWarning($"User with id: {id} not found.");
+        return null!;
+      }
+    }
+    catch (Exception ex)
+    {
+      logger.LogError($"Error finding the user from JSON: {ex.Message}");
+      throw;
+    }
+  }
 }

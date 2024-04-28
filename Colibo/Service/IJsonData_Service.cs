@@ -8,4 +8,6 @@ public interface IJsonData_Service
   Task<List<MergedUsers>> ReadJsonFileAsync();
   Task SaveNewUserAsync(MergedUsers mergedUsers);
   Task DeleteUserAsync(string id);
+  Task UpdateAsync(MergedUsers updateUser);
+  Task<MergedUsers> GetByIdAsync(string id);
 }

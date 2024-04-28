@@ -1,7 +1,7 @@
 @page "/Edit/{Id}"
 @using Colibo.Models
 @using Colibo.Service
-@inject IMergedData_Service _service
+@inject IJsonData_Service _service
 @inject NavigationManager _navManager
 @inject ILogger<Edit> logger
 
@@ -51,12 +51,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        //toEdit = await _service.GetByIdAsync(toEdit!.Id!);
+        toEdit = await _service.GetByIdAsync(toEdit!.Id!);
     }
 
     private async Task UpdateAsync()
     {
-        //await _service.UpdateAsync(toEdit!.Id!);
+        await _service.UpdateAsync(toEdit!);
         _navManager.NavigateTo("/");
     }
 }
