@@ -5,17 +5,11 @@ using Colibo.Service.MergedData_Service;
 
 namespace Colibo.Service.Json_Service;
 
-public class JsonData_Service : IJsonData_Service
+public class JsonData_Service(ILogger<JsonData_Service> logger, IMergedData_Service _Service) : IJsonData_Service
 {
-  private readonly ILogger<JsonData_Service> logger;
-  private readonly IMergedData_Service _Service;
+  private readonly ILogger<JsonData_Service> logger = logger;
+  private readonly IMergedData_Service _Service = _Service;
   private readonly string path = "MergedData.json";
-
-  public JsonData_Service(ILogger<JsonData_Service> logger, IMergedData_Service _Service)
-  {
-    this.logger = logger;
-    this._Service = _Service;
-  }
 
   public async Task SerializeToJsonAsync(List<MergedUsers> mergedUsers)
   {
@@ -52,6 +46,8 @@ public class JsonData_Service : IJsonData_Service
 
   public async Task SaveNewUserAsync(MergedUsers newUser)
   {
+    //==========TEST===============================//
+
     // var test = "niasfasjcao -57573233";
     // await DeleteUserAsync(test);
 

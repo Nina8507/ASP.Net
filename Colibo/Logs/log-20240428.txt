@@ -38,3 +38,131 @@
 2024-04-28 21:42:10.180 +02:00 [INF] Executed endpoint 'Blazor web static files'
 2024-04-28 21:42:10.180 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 4.7095ms
 2024-04-28 21:42:31.784 +02:00 [INF] Application is shutting down...
+2024-04-28 21:46:39.334 +02:00 [INF] Starting web application
+2024-04-28 21:46:39.441 +02:00 [INF] User profile is available. Using '/home/unknwn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-28 21:46:39.666 +02:00 [INF] Now listening on: http://localhost:5046
+2024-04-28 21:46:39.671 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-28 21:46:39.671 +02:00 [INF] Hosting environment: Development
+2024-04-28 21:46:39.671 +02:00 [INF] Content root path: /home/unknwn/repos/dotnet/ASP.Net/Colibo
+2024-04-28 21:46:44.592 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 21:46:44.632 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-04-28 21:46:44.637 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 21:46:44.781 +02:00 [INF] List of Users from service to JSON after serialization: 20
+2024-04-28 21:46:44.782 +02:00 [INF] List size is: 20
+2024-04-28 21:46:44.806 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 21:46:44.813 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 223.2514ms
+2024-04-28 21:46:44.830 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 21:46:44.834 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 21:46:44.843 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 21:46:44.846 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 21:46:44.847 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 16.4409ms
+2024-04-28 21:47:12.175 +02:00 [INF] Application is shutting down...
+2024-04-28 21:47:51.088 +02:00 [INF] Starting web application
+2024-04-28 21:47:51.233 +02:00 [INF] User profile is available. Using '/home/unknwn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-28 21:47:51.392 +02:00 [INF] Now listening on: http://localhost:5046
+2024-04-28 21:47:51.395 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-28 21:47:51.396 +02:00 [INF] Hosting environment: Development
+2024-04-28 21:47:51.396 +02:00 [INF] Content root path: /home/unknwn/repos/dotnet/ASP.Net/Colibo
+2024-04-28 21:47:54.211 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 21:47:54.239 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-04-28 21:47:54.242 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 21:47:54.372 +02:00 [INF] List of Users from service to JSON after serialization: 20
+2024-04-28 21:47:54.372 +02:00 [INF] List size is: 20
+2024-04-28 21:47:54.394 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 21:47:54.399 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 189.2629ms
+2024-04-28 21:47:54.421 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 21:47:54.423 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 21:47:54.429 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 21:47:54.430 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 21:47:54.430 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 8.9896ms
+2024-04-28 21:49:03.190 +02:00 [INF] Application is shutting down...
+2024-04-28 21:49:06.814 +02:00 [INF] Starting web application
+2024-04-28 21:49:06.942 +02:00 [INF] User profile is available. Using '/home/unknwn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-28 21:49:07.119 +02:00 [INF] Now listening on: http://localhost:5046
+2024-04-28 21:49:07.123 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-28 21:49:07.124 +02:00 [INF] Hosting environment: Development
+2024-04-28 21:49:07.124 +02:00 [INF] Content root path: /home/unknwn/repos/dotnet/ASP.Net/Colibo
+2024-04-28 21:49:11.151 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 21:49:11.179 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-04-28 21:49:11.183 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 21:49:11.312 +02:00 [INF] List of Users from service to JSON after serialization: 20
+2024-04-28 21:49:11.313 +02:00 [INF] List size is: 20
+2024-04-28 21:49:11.339 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 21:49:11.344 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 194.8975ms
+2024-04-28 21:49:11.359 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 21:49:11.361 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 21:49:11.367 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 21:49:11.369 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 21:49:11.369 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 10.6984ms
+2024-04-28 21:52:52.996 +02:00 [INF] Application is shutting down...
+2024-04-28 22:00:58.661 +02:00 [INF] Starting web application
+2024-04-28 22:00:58.764 +02:00 [INF] User profile is available. Using '/home/unknwn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-28 22:00:58.948 +02:00 [INF] Now listening on: http://localhost:5046
+2024-04-28 22:00:58.952 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-28 22:00:58.952 +02:00 [INF] Hosting environment: Development
+2024-04-28 22:00:58.952 +02:00 [INF] Content root path: /home/unknwn/repos/dotnet/ASP.Net/Colibo
+2024-04-28 22:01:03.014 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 22:01:03.044 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-04-28 22:01:03.048 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 22:01:03.176 +02:00 [INF] List of Users from service to JSON after serialization: 20
+2024-04-28 22:01:03.177 +02:00 [INF] List size is: 20
+2024-04-28 22:01:03.199 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 22:01:03.204 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 192.3403ms
+2024-04-28 22:01:03.228 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 22:01:03.231 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 22:01:03.236 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 22:01:03.238 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 22:01:03.240 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 12.0479ms
+2024-04-28 22:01:03.282 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/favicon.png - null null
+2024-04-28 22:01:03.292 +02:00 [INF] Sending file. Request path: '/favicon.png'. Physical path: '/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/favicon.png'
+2024-04-28 22:01:03.293 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/favicon.png - 200 1148 image/png 10.9308ms
+2024-04-28 22:10:19.685 +02:00 [INF] Application is shutting down...
+2024-04-28 22:11:17.662 +02:00 [INF] Starting web application
+2024-04-28 22:11:17.782 +02:00 [INF] User profile is available. Using '/home/unknwn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-28 22:11:17.947 +02:00 [INF] Now listening on: http://localhost:5046
+2024-04-28 22:11:17.951 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-28 22:11:17.952 +02:00 [INF] Hosting environment: Development
+2024-04-28 22:11:17.952 +02:00 [INF] Content root path: /home/unknwn/repos/dotnet/ASP.Net/Colibo
+2024-04-28 22:11:20.843 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 22:11:20.877 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-04-28 22:11:20.882 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 22:11:21.008 +02:00 [INF] List of Users from service to JSON after serialization: 20
+2024-04-28 22:11:21.009 +02:00 [INF] List size is: 20
+2024-04-28 22:11:21.031 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 22:11:21.036 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 194.6796ms
+2024-04-28 22:11:21.059 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/Colibo.styles.css - null null
+2024-04-28 22:11:21.059 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 22:11:21.063 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 22:11:21.071 +02:00 [INF] The file /Colibo.styles.css was not modified
+2024-04-28 22:11:21.071 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 22:11:21.072 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 22:11:21.073 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/Colibo.styles.css - 304 null text/css 13.4632ms
+2024-04-28 22:11:21.073 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 14.0189ms
+2024-04-28 22:11:21.117 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/favicon.png - null null
+2024-04-28 22:11:21.128 +02:00 [INF] Sending file. Request path: '/favicon.png'. Physical path: '/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/favicon.png'
+2024-04-28 22:11:21.128 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/favicon.png - 200 1148 image/png 11.7001ms
+2024-04-28 22:11:23.537 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/Add - null null
+2024-04-28 22:11:23.539 +02:00 [INF] Executing endpoint '/Add (/Add)'
+2024-04-28 22:11:23.586 +02:00 [INF] Executed endpoint '/Add (/Add)'
+2024-04-28 22:11:23.587 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/Add - 200 null text/html; charset=utf-8 49.3656ms
+2024-04-28 22:11:49.927 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5046/Add - application/x-www-form-urlencoded 329
+2024-04-28 22:11:49.936 +02:00 [INF] Executing endpoint '/Add (/Add)'
+2024-04-28 22:11:49.990 +02:00 [INF] New user added to file successfully: 773126461-192587275-2358772, 21
+2024-04-28 22:11:49.991 +02:00 [INF] Add from blazor: 773126461-192587275-2358772
+2024-04-28 22:11:49.995 +02:00 [INF] Executed endpoint '/Add (/Add)'
+2024-04-28 22:11:49.997 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 22:11:49.998 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 22:11:49.999 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5046/Add - 302 null text/html; charset=utf-8 72.3621ms
+2024-04-28 22:11:50.000 +02:00 [INF] List of Users from service to JSON after serialization: 21
+2024-04-28 22:11:50.000 +02:00 [INF] List size is: 21
+2024-04-28 22:11:50.001 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 22:11:50.002 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 4.2173ms
+2024-04-28 22:11:50.024 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 22:11:50.026 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 22:11:50.027 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 22:11:50.027 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 22:11:50.027 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 3.2939ms
+2024-04-28 22:11:50.042 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/favicon.png - null null
+2024-04-28 22:11:50.044 +02:00 [INF] Sending file. Request path: '/favicon.png'. Physical path: '/home/unknwn/repos/dotnet/ASP.Net/Colibo/wwwroot/favicon.png'
+2024-04-28 22:11:50.044 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/favicon.png - 499 1148 image/png 2.1351ms
+2024-04-28 22:11:57.665 +02:00 [INF] Application is shutting down...

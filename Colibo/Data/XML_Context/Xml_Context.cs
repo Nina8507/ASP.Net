@@ -3,16 +3,11 @@ using Colibo.Models;
 
 namespace Colibo.Data.XML_Context;
 
-public class Xml_Context : IContext_Xml
+public class Xml_Context(ILogger<Xml_Context> logger) : IContext_Xml
 {
   private readonly string xml_Persons = "Payroll.xml";
-  private readonly ILogger<Xml_Context> logger;
+  private readonly ILogger<Xml_Context> logger = logger;
   private readonly XmlSerializer serializer = new(typeof(EmployeeData));
-
-  public Xml_Context(ILogger<Xml_Context> logger)
-  {
-    this.logger = logger;
-  }
 
   public async Task<EmployeeData> Initialize_xml_Async()
   {

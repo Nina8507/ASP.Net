@@ -5,19 +5,12 @@ using Colibo.Models;
 
 namespace Colibo.Service.MergedData_Service;
 
-public class MergedData_Service : IMergedData_Service
+public class MergedData_Service(IContext_Azure _Azure, IContext_Xml _Xml, ILogger<MergedData_Service> logger) : IMergedData_Service
 {
   public List<MergedUsers> mergedUsers = [];
-  private readonly ILogger<MergedData_Service> logger;
-  private readonly IContext_Xml _Xml;
-  private readonly IContext_Azure _Azure;
-
-  public MergedData_Service(IContext_Azure _Azure, IContext_Xml _Xml, ILogger<MergedData_Service> logger)
-  {
-    this._Xml = _Xml;
-    this._Azure = _Azure;
-    this.logger = logger;
-  }
+  private readonly ILogger<MergedData_Service> logger = logger;
+  private readonly IContext_Xml _Xml = _Xml;
+  private readonly IContext_Azure _Azure = _Azure;
 
   public async Task<List<MergedUsers>> GetAllAsync()
   {
@@ -42,33 +35,22 @@ public class MergedData_Service : IMergedData_Service
     return mergedUsers;
   }
 
-  private List<MergedUsers> MergeLists(List<Employee> empXml, List<User> userAzure)
+  private static List<MergedUsers> MergeLists(List<Employee> empXml, List<User> userAzure)
   {
-    var mergedLists = empXml.Join(userAzure!, emp => emp.Name, usr => usr.DisplayName,
-          (emp, usr) => new MergedUsers
-          {
-            Id = usr.Id,
-            FullName = emp.Name,
-            Email = emp.Email ?? usr.UserPrincipalName,
-            JobTitle = emp.Title ?? usr.JobTitle,
-            Mobile = emp.Mobile ?? usr.MobilePhone,
-            Address = emp.Address,
-            City = emp.City
-          })
-    .ToList();
+    var mergedLists = from emp in empXml
+                      join usr in userAzure on emp.Name equals usr.DisplayName into temp
+                      from usr in temp.DefaultIfEmpty()
+                      select new MergedUsers
+                      {
+                        Id = emp.EmployeeId,
+                        FullName = emp.Name,
+                        Email = emp.Email ?? usr?.UserPrincipalName,
+                        JobTitle = emp.Title ?? usr?.JobTitle,
+                        Mobile = emp.Mobile ?? usr?.MobilePhone,
+                        Address = emp.Address,
+                        City = emp.City
+                      };
 
-    var remainingUsers = userAzure!.Where(u => !mergedLists.Any(mu => mu.FullName == u.DisplayName))
-        .Select(u => new MergedUsers
-        {
-          Id = u.Id,
-          FullName = u.DisplayName,
-          Email = u.UserPrincipalName,
-          JobTitle = u.JobTitle,
-          Mobile = u.MobilePhone
-        });
-
-    mergedLists.AddRange(remainingUsers);
-
-    return mergedLists;
+    return mergedLists.ToList();
   }
 }
