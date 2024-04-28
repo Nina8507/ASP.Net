@@ -5,7 +5,6 @@ namespace Colibo.Data.XML_Context;
 
 public class Xml_Context : IContext_Xml
 {
-  private readonly EmployeeData datav= new();
   private readonly string xml_Persons = "Payroll.xml";
   private readonly ILogger<Xml_Context> logger;
   private readonly XmlSerializer serializer = new(typeof(EmployeeData));

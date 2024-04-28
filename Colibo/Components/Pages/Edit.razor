@@ -9,54 +9,54 @@
 <h5>Edit Employee with ID: @toEdit!.Id</h5>
 
 <EditForm Model="@toEdit" OnValidSubmit="@UpdateAsync" FormName="edit">
-    <div class="col-sm-4">
-        <label for="Id">EmployeeId:</label>
-        <InputText @bind-Value="toEdit!.Id" class="form-control" />
-        <p>@toEdit.Id</p>
-    </div>
-    <div class="col-sm-4">
-        <label for="FullName">Name:</label>
-        <InputText @bind-Value="toEdit.FullName" class="form-control" />
-    </div>
-    <div class="col-sm-4">
-        <label for="Email">Email:</label>
-        <InputText @bind-Value="toEdit.Email" class="form-control" />
-    </div>
-    <div class="col-sm-4">
-        <label for="Mobile">Mobile:</label>
-        <InputText @bind-Value="toEdit.Mobile" class="form-control" />
-    </div>
-    <div class="col-sm-4">
-        <label for="JobTitle">Title:</label>
-        <InputText @bind-Value="toEdit.JobTitle" class="form-control" />
-    </div>
-    <div class="col-sm-4">
-        <label for="Address">Address:</label>
-        <InputText @bind-Value="toEdit.Address" class="form-control" />
-    </div>
-    <div class="col-sm-4">
-        <label for="City">City:</label>
-        <InputText @bind-Value="toEdit.City" class="form-control" />
-    </div>
-    <br />
-    <p class="action">
-        <button class="btn btn-outline-dark" type="submit">Create</button>
-    </p>
+	<div class="col-sm-4">
+		<label for="Id">EmployeeId:</label>
+		<InputText @bind-Value="toEdit!.Id" class="form-control" />
+		<p>@toEdit.Id</p>
+	</div>
+	<div class="col-sm-4">
+		<label for="FullName">Name:</label>
+		<InputText @bind-Value="toEdit.FullName" class="form-control" />
+	</div>
+	<div class="col-sm-4">
+		<label for="Email">Email:</label>
+		<InputText @bind-Value="toEdit.Email" class="form-control" />
+	</div>
+	<div class="col-sm-4">
+		<label for="Mobile">Mobile:</label>
+		<InputText @bind-Value="toEdit.Mobile" class="form-control" />
+	</div>
+	<div class="col-sm-4">
+		<label for="JobTitle">Title:</label>
+		<InputText @bind-Value="toEdit.JobTitle" class="form-control" />
+	</div>
+	<div class="col-sm-4">
+		<label for="Address">Address:</label>
+		<InputText @bind-Value="toEdit.Address" class="form-control" />
+	</div>
+	<div class="col-sm-4">
+		<label for="City">City:</label>
+		<InputText @bind-Value="toEdit.City" class="form-control" />
+	</div>
+	<br />
+	<p class="action">
+		<button class="btn btn-outline-dark" type="submit">Create</button>
+	</p>
 </EditForm>
 
 @code
 {
-    [SupplyParameterFromForm]
-    public MergedUsers? toEdit { get; set; }
+	[SupplyParameterFromForm]
+	public MergedUsers? toEdit { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        toEdit = await _service.GetByIdAsync(toEdit!.Id!);
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		toEdit = await _service.GetByIdAsync(toEdit!.Id!);
+	}
 
-    private async Task UpdateAsync()
-    {
-        await _service.UpdateAsync(toEdit!);
-        _navManager.NavigateTo("/");
-    }
+	private async Task UpdateAsync()
+	{
+		await _service.UpdateAsync(toEdit!);
+		_navManager.NavigateTo("/");
+	}
 }

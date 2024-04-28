@@ -22,14 +22,14 @@ public class JsonData_Service : IJsonData_Service
     mergedUsers = await _Service.GetAllAsync();
     try
     {
-      logger!.LogInformation($"List of Users from service to JSON: {mergedUsers.Count}");
+      logger.LogInformation($"List of Users from service to JSON: {mergedUsers.Count}");
 
       await SerializeAsync(mergedUsers);
-      logger!.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers.Count}");
+      logger.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers.Count}");
     }
     catch (Exception ex)
     {
-      logger!.LogError($"Error creating JSON file: {ex.Message}");
+      logger.LogError($"Error creating JSON file: {ex.Message}");
       throw;
     }
   }
@@ -40,7 +40,7 @@ public class JsonData_Service : IJsonData_Service
     {
       var mergedUsers = await DeserializeAsync();
 
-      logger!.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers!.Count}");
+      logger.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers!.Count}");
       return mergedUsers!;
     }
     catch (Exception ex)
@@ -61,7 +61,7 @@ public class JsonData_Service : IJsonData_Service
         list.Add(newUser);
         await SerializeAsync(list);
 
-        logger!.LogInformation($"New user added to file successfully: {newUser.Id}, {list.Count}");
+        logger.LogInformation($"New user added to file successfully: {newUser.Id}, {list.Count}");
       }
       else
       {
@@ -70,7 +70,7 @@ public class JsonData_Service : IJsonData_Service
     }
     catch (Exception ex)
     {
-      logger!.LogError($"Error saving new user to JSON file: {ex.Message}");
+      logger.LogError($"Error saving new user to JSON file: {ex.Message}");
       throw;
     }
   }
@@ -89,21 +89,21 @@ public class JsonData_Service : IJsonData_Service
           list.Remove(toRemove);
           await SerializeAsync(list);
 
-          logger!.LogInformation($" Id deleted successfully: {id}");
+          logger.LogInformation($" Id deleted successfully: {id}");
         }
         else
         {
-          logger!.LogError($" Id: {id} not found.");
+          logger.LogError($" Id: {id} not found.");
         }
       }
       else
       {
-        logger!.LogError("Deserialization of JSON content failed.");
+        logger.LogError("Deserialization of JSON content failed.");
       }
     }
     catch (Exception ex)
     {
-      logger!.LogError($"Error deleting user from JSON file: {ex.Message}");
+      logger.LogError($"Error deleting user from JSON file: {ex.Message}");
       throw;
     }
   }
@@ -123,21 +123,21 @@ public class JsonData_Service : IJsonData_Service
           list.Add(updateUser);
           await SerializeAsync(list);
 
-          logger!.LogInformation($"Updated user with Id: {updateUser.Id}");
+          logger.LogInformation($"Updated user with Id: {updateUser.Id}");
         }
         else
         {
-          logger!.LogError($"Id: {updateUser.Id} not found.");
+          logger.LogError($"Id: {updateUser.Id} not found.");
         }
       }
       else
       {
-        logger!.LogError("Deserialization of JSON content failed.");
+        logger.LogError("Deserialization of JSON content failed.");
       }
     }
     catch (Exception ex)
     {
-      logger!.LogError($"Error deleting user from JSON file: {ex.Message}");
+      logger.LogError($"Error deleting user from JSON file: {ex.Message}");
       throw;
     }
   }

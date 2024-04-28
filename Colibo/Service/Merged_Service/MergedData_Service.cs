@@ -8,9 +8,9 @@ namespace Colibo.Service.MergedData_Service;
 public class MergedData_Service : IMergedData_Service
 {
   public List<MergedUsers> mergedUsers = [];
-  private readonly ILogger<MergedData_Service>? logger;
-  private readonly IContext_Xml? _Xml;
-  private readonly IContext_Azure? _Azure;
+  private readonly ILogger<MergedData_Service> logger;
+  private readonly IContext_Xml _Xml;
+  private readonly IContext_Azure _Azure;
 
   public MergedData_Service(IContext_Azure _Azure, IContext_Xml _Xml, ILogger<MergedData_Service> logger)
   {
@@ -26,23 +26,23 @@ public class MergedData_Service : IMergedData_Service
 
   private async Task<List<MergedUsers>> MergedUsersAsync()
   {
-    var users = await _Azure!.Initialize_Azure_Async();
-    var employees = await _Xml!.Initialize_xml_Async();
+    var users = await _Azure.Initialize_Azure_Async();
+    var employees = await _Xml.Initialize_xml_Async();
 
-    List<Employee>? empXml = employees.persons;
-    List<User>? userAzure = users.Value;
+    List<Employee> empXml = employees.persons;
+    List<User> userAzure = users.Value!;
 
-    logger!.LogInformation($"Employee list from XML is size: {empXml?.Count}");
-    logger!.LogInformation($"User list from Azure is size: {userAzure?.Count}");
+    logger.LogInformation($"Employee list from XML is size: {empXml.Count}");
+    logger.LogInformation($"User list from Azure is size: {userAzure.Count}");
 
-    mergedUsers = MergeLists(empXml!, userAzure);
+    mergedUsers = MergeLists(empXml, userAzure);
 
-    logger!.LogInformation($"Merged list from both sources is size: {userAzure?.Count}");
+    logger.LogInformation($"Merged list from both sources is size: {userAzure.Count}");
 
     return mergedUsers;
   }
 
-  private List<MergedUsers> MergeLists(List<Employee> empXml, List<User>? userAzure)
+  private List<MergedUsers> MergeLists(List<Employee> empXml, List<User> userAzure)
   {
     var mergedLists = empXml.Join(userAzure!, emp => emp.Name, usr => usr.DisplayName,
           (emp, usr) => new MergedUsers
