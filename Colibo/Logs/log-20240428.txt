@@ -1,0 +1,40 @@
+2024-04-28 21:41:17.639 +02:00 [INF] Starting web application
+2024-04-28 21:41:17.761 +02:00 [INF] User profile is available. Using '/home/unknwn/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-04-28 21:41:17.939 +02:00 [INF] Now listening on: http://localhost:5046
+2024-04-28 21:41:17.943 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-28 21:41:17.943 +02:00 [INF] Hosting environment: Development
+2024-04-28 21:41:17.943 +02:00 [INF] Content root path: /home/unknwn/repos/dotnet/ASP.Net/Colibo
+2024-04-28 21:41:37.129 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 21:41:37.171 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-04-28 21:41:37.176 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 21:41:37.342 +02:00 [INF] List of Users from service to JSON after serialization: 19
+2024-04-28 21:41:37.343 +02:00 [INF] List size is: 19
+2024-04-28 21:41:37.376 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 21:41:37.382 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 254.6812ms
+2024-04-28 21:41:37.413 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 21:41:37.416 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 21:41:37.422 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 21:41:37.423 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 21:41:37.424 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 11.6381ms
+2024-04-28 21:41:42.348 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/Add - null null
+2024-04-28 21:41:42.351 +02:00 [INF] Executing endpoint '/Add (/Add)'
+2024-04-28 21:41:42.395 +02:00 [INF] Executed endpoint '/Add (/Add)'
+2024-04-28 21:41:42.396 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/Add - 200 null text/html; charset=utf-8 47.509ms
+2024-04-28 21:42:10.064 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5046/Add - application/x-www-form-urlencoded 345
+2024-04-28 21:42:10.077 +02:00 [INF] Executing endpoint '/Add (/Add)'
+2024-04-28 21:42:10.130 +02:00 [INF] New user added to file successfully: 9824-jksdf-9417-33333, 20
+2024-04-28 21:42:10.130 +02:00 [INF] Add from blazor: 9824-jksdf-9417-33333
+2024-04-28 21:42:10.135 +02:00 [INF] Executed endpoint '/Add (/Add)'
+2024-04-28 21:42:10.137 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/ - null null
+2024-04-28 21:42:10.137 +02:00 [INF] Executing endpoint '/ (/)'
+2024-04-28 21:42:10.139 +02:00 [INF] List of Users from service to JSON after serialization: 20
+2024-04-28 21:42:10.139 +02:00 [INF] List size is: 20
+2024-04-28 21:42:10.141 +02:00 [INF] Executed endpoint '/ (/)'
+2024-04-28 21:42:10.141 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/ - 200 null text/html; charset=utf-8 4.6553ms
+2024-04-28 21:42:10.145 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5046/Add - 302 null text/html; charset=utf-8 80.7906ms
+2024-04-28 21:42:10.176 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - null null
+2024-04-28 21:42:10.178 +02:00 [INF] Executing endpoint 'Blazor web static files'
+2024-04-28 21:42:10.179 +02:00 [INF] The file /_framework/blazor.web.js was not modified
+2024-04-28 21:42:10.180 +02:00 [INF] Executed endpoint 'Blazor web static files'
+2024-04-28 21:42:10.180 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5046/_framework/blazor.web.js - 304 null text/javascript 4.7095ms
+2024-04-28 21:42:31.784 +02:00 [INF] Application is shutting down...

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Colibo.Components;
 using Colibo.Data.AZURE_Context;
 using Colibo.Data.XML_Context;
@@ -25,8 +26,18 @@ builder.Services.AddSingleton<IContext_Azure, AzureAD_Context>();
 builder.Services.AddSingleton<IMergedData_Service, MergedData_Service>();
 builder.Services.AddSingleton<IJsonData_Service, JsonData_Service>();
 
-// builder.Host.UseSerilog((context, configuration) =>
-//     configuration.ReadFrom.Configuration(context.Configuration));
+//builder.Services.AddSerilog(config => config.ReadFrom.Configuration(builder.Configuration));
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+
+Log.Information("Starting web application");
+
+builder.Host.UseSerilog(); 
+
 
 var app = builder.Build();
 
@@ -44,9 +55,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseAntiforgery();
-// app.UseSerilogRequestLogging();
+//app.UseSerilogRequestLogging();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
-  
+
 
 app.Run();
