@@ -17,14 +17,7 @@ namespace Colibo.Data.XML_Context
 
     public async Task<EmployeeData> Initialize_xml_Async()
     {
-      if (Data == null)
-      { 
-        return await ReadDataAsync(xml_Persons); 
-      }
-      else
-      { 
-        return Data!; 
-      }
+      return await ReadDataAsync(xml_Persons);
     }
 
     private async Task<EmployeeData> ReadDataAsync(string xml_Persons)
@@ -33,11 +26,12 @@ namespace Colibo.Data.XML_Context
       {
         var xmlContent = await File.ReadAllTextAsync(xml_Persons);
         var persons = (EmployeeData?)serializer.Deserialize(new StringReader(xmlContent));
+        logger.LogInformation($"Read data from the XML: {persons!.persons.Count}");
         return persons!;
       }
       catch (Exception e)
       {
-        logger.LogError($"Read xml: {e.StackTrace}");
+        logger.LogError($"Read data from xml: {e.StackTrace}");
         throw;
       }
     }

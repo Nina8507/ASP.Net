@@ -5,6 +5,13 @@ using Colibo.Service;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
@@ -36,7 +43,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseAntiforgery();
-//app.UseSerilogRequestLogging();
+// app.UseSerilogRequestLogging();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
   

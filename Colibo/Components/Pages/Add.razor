@@ -1,13 +1,13 @@
-@page "/AddEmployee"
+@page "/Add"
 @using Colibo.Models
 @using Colibo.Service
 @inject IMergedData_Service _service
 @inject NavigationManager _navManager
-@inject ILogger<AddEmployee> logger
+@inject ILogger<Add> logger
 
 <h3>Add</h3>
 
-<EditForm Model="@toAdd" OnValidSubmit="@SaveEmployeeAsync" FormName="addEmployee">
+<EditForm Model="@toAdd" OnValidSubmit="@SaveEmployeeAsync" FormName="add">
         <div class="col-sm-4">
             <label for="Id" >EmployeeId:</label>
             <InputText @bind-Value="toAdd!.Id" class="form-control" />
@@ -54,6 +54,6 @@
     {
         await _service.AddAync(toAdd!);
         logger.LogInformation($"Add from blazor: {toAdd!.Id}");
-        _navManager.NavigateTo("/User");
+        _navManager.NavigateTo("/");
     }
 }   

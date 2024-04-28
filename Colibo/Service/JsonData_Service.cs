@@ -17,9 +17,10 @@ public class JsonData_Service : IJsonData_Service
   {
     try
     {
+      logger!.LogInformation($"List of Users from service to JSON: {mergedUsers.Count}");
       string json = JsonSerializer.Serialize(mergedUsers, new JsonSerializerOptions { WriteIndented = true });
       await File.WriteAllTextAsync(path, json);
-
+      logger!.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers.Count}");
       logger!.LogInformation($"Json file created successfully: {path}");
     }
     catch (Exception ex)
@@ -28,16 +29,29 @@ public class JsonData_Service : IJsonData_Service
       throw;
     }
   }
-  public async Task SaveChangesAsync(string path, List<MergedUsers> mergedUsers)
+  public async Task SaveNewUserAsync(string path, MergedUsers newUser)
   {
-    string json = JsonSerializer.Serialize(mergedUsers, new JsonSerializerOptions
+    try
     {
-        WriteIndented = true
-    });
-    using (StreamWriter outputFile = new(path, false))
-    {
-      await outputFile.WriteAsync(json);
+      var content = await File.ReadAllTextAsync(path);
+      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+
+       if (list != null)
+        {
+          list.Add(newUser);
+          await SerializeToJsonAsync(path, list);
+
+          logger!.LogInformation($"New user added to file successfully: {newUser.Id}, {list.Count}");
+        }
+        else
+        {
+          logger!.LogError("Deserialization of JSON content failed or resulted in a null list.");
+        }
     }
-    logger!.LogInformation($"In the json service size of mergedUsers is: {mergedUsers.Count}");
+    catch (Exception ex)
+    {
+        logger!.LogError($"Error saving new user to JSON file: {ex.Message}");
+        throw;
+    }
   }
 }

@@ -35,36 +35,7 @@ main[b-1lc7uzehio] {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-    .edit-button[b-1lc7uzehio] {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
-    /* Style for delete button */
-    .delete-button[b-1lc7uzehio] {
-        background-color: #f44336; /* Red */
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-
+    
 @media (max-width: 640.98px) {
     .top-row[b-1lc7uzehio] {
         justify-content: space-between;

@@ -38,54 +38,47 @@ public class MergedData_Service : IMergedData_Service
     logger!.LogInformation($"Employee list from XML is size: {empXml?.Count}");
     logger!.LogInformation($"User list from Azure is size: {userAzure?.Count}");
 
-    MergeLists(empXml!, userAzure);
+    mergedUsers = MergeLists(empXml!, userAzure);
 
     logger!.LogInformation($"Merged list from both sources is size: {userAzure?.Count}");
 
-    //await jsonData!.SerializeToJsonAsync(pathToJson, mergedUsers);
     return mergedUsers;
   }
 
-  private void MergeLists(List<Employee> empXml, List<User>? userAzure)
+  private List<MergedUsers> MergeLists(List<Employee> empXml, List<User>? userAzure)
   {
-    foreach (var emp in empXml!)
-    {
-      var user = userAzure!.FirstOrDefault(u => u.DisplayName == emp.Name);
-        if (user != null)
+    var mergedLists = empXml.Join(userAzure!, emp => emp.Name, usr => usr.DisplayName,
+          (emp, usr) => new MergedUsers
           {
-            mergedUsers.Add(new MergedUsers
-            {
-              Id = user.Id,
-              FullName = emp.Name,
-              Email = emp.Email ?? user.UserPrincipalName,
-              JobTitle = emp.Title ?? user.JobTitle,
-              Mobile = emp.Mobile ?? user.MobilePhone,
-              Address = emp.Address,
-              City = emp.City
-            });
-          }
-    }
+            Id = usr.Id,
+            FullName = emp.Name,
+            Email = emp.Email ?? usr.UserPrincipalName,
+            JobTitle = emp.Title ?? usr.JobTitle,
+            Mobile = emp.Mobile ?? usr.MobilePhone,
+            Address = emp.Address,
+            City = emp.City
+          })
+    .ToList();
 
-    var remainingUsers = userAzure!.Where(u => !mergedUsers.Any(mu => mu.FullName == u.DisplayName));
-    foreach (var user in remainingUsers)
-    {
-      mergedUsers.Add(new MergedUsers
-      {
-        Id = user.Id,
-        FullName = user.DisplayName,
-        Email = user.UserPrincipalName,
-        JobTitle = user.JobTitle,
-        Mobile = user.MobilePhone
-      });
-    }
+    var remainingUsers = userAzure!.Where(u => !mergedLists.Any(mu => mu.FullName == u.DisplayName))
+        .Select(u => new MergedUsers
+        {
+          Id = u.Id,
+          FullName = u.DisplayName,
+          Email = u.UserPrincipalName,
+          JobTitle = u.JobTitle,
+          Mobile = u.MobilePhone
+        });
+
+    mergedLists.AddRange(remainingUsers);
+
+    return mergedLists;
   }
 
   public async Task AddAync(MergedUsers newUser)
   {
     logger!.LogInformation($"Service add new employee with Id: {newUser.Id}");
-    mergedUsers.Add(newUser);
-    logger!.LogInformation($"Service new mergedData list is: {mergedUsers.Count}");
-    await jsonData!.SaveChangesAsync(pathToJson, mergedUsers);
+    await jsonData!.SaveNewUserAsync(pathToJson, newUser);
   }
 
   public async Task DeleteAsync(string id)
@@ -93,7 +86,7 @@ public class MergedData_Service : IMergedData_Service
     var getAll = await GetAllAsync();
     var toRemove = getAll!.FirstOrDefault(u => u.Id!.Equals(id));
     getAll.Remove(toRemove!);
-    await jsonData!.SaveChangesAsync(pathToJson, getAll);
+    await jsonData!.SerializeToJsonAsync(pathToJson, getAll);
   }
 
   public async Task UpdateAsync(string id)
@@ -101,13 +94,13 @@ public class MergedData_Service : IMergedData_Service
     var getAll = await GetAllAsync();
     var toUpdate = getAll!.FirstOrDefault(u => u.Id!.Equals(id));
     getAll.Remove(toUpdate!);
-    await jsonData!.SaveChangesAsync(pathToJson, getAll);
+    await jsonData!.SerializeToJsonAsync(pathToJson, getAll);
   }
 
   public async Task<MergedUsers> GetByIdAsync(string id)
   {
     var getAll = await GetAllAsync();
-    var findUser=  getAll!.FirstOrDefault(uid => uid.Id!.Equals(id));
+    var findUser = getAll!.FirstOrDefault(uid => uid.Id!.Equals(id));
     return findUser!;
   }
 }
