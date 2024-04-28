@@ -22,8 +22,8 @@ public class JsonData_Service : IJsonData_Service
     try
     {
       logger!.LogInformation($"List of Users from service to JSON: {mergedUsers.Count}");
-      string json = JsonSerializer.Serialize(mergedUsers, new JsonSerializerOptions { WriteIndented = true });
-      await File.WriteAllTextAsync(path, json);
+
+      await SerializeAsync(mergedUsers);
       logger!.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers.Count}");
     }
     catch (Exception ex)
@@ -32,12 +32,12 @@ public class JsonData_Service : IJsonData_Service
       throw;
     }
   }
+
   public async Task<List<MergedUsers>> ReadJsonFileAsync()
   {
     try
     {
-      var content = await File.ReadAllTextAsync(path);
-      var mergedUsers = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+      var mergedUsers = await DeserializeAsync();
 
       logger!.LogInformation($"List of Users from service to JSON after serialization: {mergedUsers!.Count}");
       return mergedUsers!;
@@ -48,18 +48,17 @@ public class JsonData_Service : IJsonData_Service
       throw;
     }
   }
+
   public async Task SaveNewUserAsync(MergedUsers newUser)
   {
     try
     {
-      var content = await File.ReadAllTextAsync(path);
-      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+      var list = await DeserializeAsync();
 
       if (list != null)
       {
         list.Add(newUser);
-        var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
-        await File.WriteAllTextAsync(path, json);
+        await SerializeAsync(list);
 
         logger!.LogInformation($"New user added to file successfully: {newUser.Id}, {list.Count}");
       }
@@ -79,8 +78,7 @@ public class JsonData_Service : IJsonData_Service
   {
     try
     {
-      var content = await File.ReadAllTextAsync(path);
-      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+      var list = await DeserializeAsync();
 
       if (list != null)
       {
@@ -88,8 +86,7 @@ public class JsonData_Service : IJsonData_Service
         if (toRemove != null)
         {
           list.Remove(toRemove);
-          var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
-          await File.WriteAllTextAsync(path, json);
+          await SerializeAsync(list);
 
           logger!.LogInformation($" Id deleted successfully: {id}");
         }
@@ -114,8 +111,7 @@ public class JsonData_Service : IJsonData_Service
   {
     try
     {
-      var content = await File.ReadAllTextAsync(path);
-      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+      var list = await DeserializeAsync();
 
       if (list != null)
       {
@@ -124,8 +120,7 @@ public class JsonData_Service : IJsonData_Service
         {
           list.Remove(toUpdate);
           list.Add(updateUser);
-          var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
-          await File.WriteAllTextAsync(path, json);
+          await SerializeAsync(list);
 
           logger!.LogInformation($"Updated user with Id: {updateUser.Id}");
         }
@@ -150,10 +145,9 @@ public class JsonData_Service : IJsonData_Service
   {
     try
     {
-      var content = await File.ReadAllTextAsync(path);
-      var list = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+      var list = await DeserializeAsync();
 
-      if (list == null || !list.Any())
+      if (list == null || list.Count == 0)
       {
         logger.LogError("List is empty.");
         return null!;
@@ -176,5 +170,18 @@ public class JsonData_Service : IJsonData_Service
       logger.LogError($"Error finding the user from JSON: {ex.Message}");
       throw;
     }
+  }
+
+  private async Task SerializeAsync(List<MergedUsers> mergedUsers)
+  {
+    var json = JsonSerializer.Serialize(mergedUsers, new JsonSerializerOptions { WriteIndented = true });
+    await File.WriteAllTextAsync(path, json);
+  }
+
+  private async Task<List<MergedUsers>?> DeserializeAsync()
+  {
+    var content = await File.ReadAllTextAsync(path);
+    var mergedUsers = JsonSerializer.Deserialize<List<MergedUsers>>(content);
+    return mergedUsers;
   }
 }
