@@ -1,7 +1,7 @@
 @page "/Add"
 @using Colibo.Models
 @using Colibo.Service
-@inject IMergedData_Service _service
+@inject IJsonData_Service _service
 @inject NavigationManager _navManager
 @inject ILogger<Add> logger
 
@@ -52,7 +52,7 @@
 
     private async Task SaveEmployeeAsync()
     {
-        await _service.AddAync(toAdd!);
+        await _service.SaveNewUserAsync(toAdd!);
         logger.LogInformation($"Add from blazor: {toAdd!.Id}");
         _navManager.NavigateTo("/");
     }

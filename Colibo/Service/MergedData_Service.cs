@@ -9,16 +9,13 @@ public class MergedData_Service : IMergedData_Service
 {
   public List<MergedUsers> mergedUsers = [];
   private readonly ILogger<MergedData_Service>? logger;
-  private readonly IJsonData_Service? jsonData;
-  private readonly string pathToJson = "MergedData.json";
   private readonly IContext_Xml? _Xml;
   private readonly IContext_Azure? _Azure;
 
-  public MergedData_Service(IContext_Azure _Azure, IContext_Xml _Xml, IJsonData_Service jsonData, ILogger<MergedData_Service> logger)
+  public MergedData_Service(IContext_Azure _Azure, IContext_Xml _Xml, ILogger<MergedData_Service> logger)
   {
     this._Xml = _Xml;
     this._Azure = _Azure;
-    this.jsonData = jsonData;
     this.logger = logger;
   }
 
@@ -73,34 +70,5 @@ public class MergedData_Service : IMergedData_Service
     mergedLists.AddRange(remainingUsers);
 
     return mergedLists;
-  }
-
-  public async Task AddAync(MergedUsers newUser)
-  {
-    logger!.LogInformation($"Service add new employee with Id: {newUser.Id}");
-    await jsonData!.SaveNewUserAsync(pathToJson, newUser);
-  }
-
-  public async Task DeleteAsync(string id)
-  {
-    var getAll = await GetAllAsync();
-    var toRemove = getAll!.FirstOrDefault(u => u.Id!.Equals(id));
-    getAll.Remove(toRemove!);
-    await jsonData!.SerializeToJsonAsync(pathToJson, getAll);
-  }
-
-  public async Task UpdateAsync(string id)
-  {
-    var getAll = await GetAllAsync();
-    var toUpdate = getAll!.FirstOrDefault(u => u.Id!.Equals(id));
-    getAll.Remove(toUpdate!);
-    await jsonData!.SerializeToJsonAsync(pathToJson, getAll);
-  }
-
-  public async Task<MergedUsers> GetByIdAsync(string id)
-  {
-    var getAll = await GetAllAsync();
-    var findUser = getAll!.FirstOrDefault(uid => uid.Id!.Equals(id));
-    return findUser!;
   }
 }

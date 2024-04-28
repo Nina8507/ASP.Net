@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using Colibo.Models
 @using Colibo.Service
+@inject IJsonData_Service _json
 @inject IMergedData_Service _service
 @inject NavigationManager _navManager
 @inject ILogger<Home> logger
@@ -54,17 +55,16 @@ else
 @code 
 {
   private List<MergedUsers> toShow = new();
-  private List<MergedUsers> filter = new();
 
   protected override async Task OnInitializedAsync()
   {
-    toShow = await _service.GetAllAsync();
+    toShow = await _json.ReadJsonFileAsync();
     logger.LogInformation($"List size is: {toShow.Count}");
   }
 
   private async Task DeleteAsync(string id)
   {
-    await _service.DeleteAsync(id);
+    await _json.DeleteUserAsync(id);
     var toRemove = toShow.FirstOrDefault(p => p.Id!.Equals(id!));
     toShow.Remove(toRemove!);
   }
