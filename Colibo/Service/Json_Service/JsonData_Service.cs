@@ -52,6 +52,21 @@ public class JsonData_Service : IJsonData_Service
 
   public async Task SaveNewUserAsync(MergedUsers newUser)
   {
+    // var test = "niasfasjcao -57573233";
+    // await DeleteUserAsync(test);
+
+    // var test = new MergedUsers
+    // {
+    //   Id = "5427783283992",
+    //   FullName = "John Doe",
+    //   Email = "",
+    //   JobTitle = " ",
+    //   Mobile = "",
+    //   Address = "",
+    //   City = ""
+    // };
+    // await UpdateAsync(test);
+
     try
     {
       var list = await DeserializeAsync();

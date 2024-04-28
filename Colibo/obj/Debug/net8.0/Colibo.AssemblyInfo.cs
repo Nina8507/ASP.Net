@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Colibo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b9c4d1d78ca4880036e8819b02887c0862de200")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca87565e4290e80ba3490ddf51d22eac61e67626")]
 [assembly: System.Reflection.AssemblyProductAttribute("Colibo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Colibo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -6,12 +6,12 @@
 @inject ILogger<Edit> logger
 
 <h3>Edit</h3>
-<h5>Edit Employee with ID: @toEdit!.Id</h5>
+<h5>Edit Employee with ID: @toEdit.Id</h5>
 
 <EditForm Model="@toEdit" OnValidSubmit="@UpdateAsync" FormName="edit">
 	<div class="col-sm-4">
 		<label for="Id">EmployeeId:</label>
-		<InputText @bind-Value="toEdit!.Id" class="form-control" />
+		<InputText @bind-Value="toEdit.Id" class="form-control" />
 		<p>@toEdit.Id</p>
 	</div>
 	<div class="col-sm-4">
@@ -47,11 +47,11 @@
 @code
 {
 	[SupplyParameterFromForm]
-	public MergedUsers? toEdit { get; set; }
+	public MergedUsers toEdit { get; set; } = new();
 
 	protected override async Task OnInitializedAsync()
 	{
-		toEdit = await _service.GetByIdAsync(toEdit!.Id!);
+		toEdit = await _service.GetByIdAsync(toEdit.Id!);
 	}
 
 	private async Task UpdateAsync()

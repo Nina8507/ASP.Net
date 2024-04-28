@@ -1,9 +1,11 @@
 ﻿@page "/"
 @using Colibo.Models
+@using Colibo.Service
 @using Colibo.Service.Json_Service
 @inject IJsonData_Service _json
 @inject NavigationManager _navManager
 @inject ILogger<Home> logger
+
 
 <h3>Employees</h3>
 
@@ -40,10 +42,10 @@ else
           <td>@p.Address</td>
           <td>@p.City</td>
           <td>
-            <button @onclick="@(async () => await  DeleteAsync(p.Id!))"></button>
+            <button @onclick="@(async () => await DeleteAsync(p.Id!))"></button>
           </td>
           <td>
-            <button @onclick="@( () => Update(p.Id!))"></button>
+            <button @onclick="@( () =>  Update(p.Id!))"></button>
           </td>
         </tr>
       }
@@ -54,6 +56,8 @@ else
 @code 
 {
   private List<MergedUsers> toShow = new();
+  private MergedUsers user = new();
+
 
   protected override async Task OnInitializedAsync()
   {
@@ -64,7 +68,7 @@ else
   private async Task DeleteAsync(string id)
   {
     await _json.DeleteUserAsync(id);
-    var toRemove = toShow.FirstOrDefault(p => p.Id!.Equals(id!));
+    var toRemove = toShow.FirstOrDefault(p => p.Id!.Equals(id));
     toShow.Remove(toRemove!);
   }
 
